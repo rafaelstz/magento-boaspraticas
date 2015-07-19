@@ -1,14 +1,18 @@
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+title: Magento - Boas Práticas
+author: Rafael Corrêa Gomes
+email: rafaelcg_stz@hotmail.com
+keywords: "Magento, boas práticas, desenvolvimento, php, temas, extensões, debug, performace, frontend, backend, testes."
+description: "Boas práticas para desenvolvedores Magento, não é tutorial é um guia. Contém recomendações de temas, extensões, debug, performace, frontend, backend, ferramentas de desenvolvimento e testes."
+baseurl: "/magento-boaspraticas"
+url: "http://rafaelstz.github.com/magento-boaspraticas"
+locale: pt_BR
+
+# Personal info and site tools info:
+twitter_username: rafaelcgstz
+github_username:  rafaelstz
+favicon:     "/images/favicon.ico"
 
 # Build settings
 markdown: kramdown
+highlighter: pygments
