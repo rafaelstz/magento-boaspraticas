@@ -1,47 +1,15 @@
 <footer class="site-footer">
 
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col  footer-col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col  footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            <a href="https://github.com/{{ site.github_username }}">
-              
-
-              <span class="username">{{ site.github_username }}</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            <a href="https://twitter.com/{{ site.twitter_username }}">
-             
-
-              <span class="username">{{ site.twitter_username }}</span>
-            </a>
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col  footer-col-3">
-        <p class="text">{{ site.description }}</p>
-      </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+           Copyright MIT © 2015 <a href="https://github.com/rafaelstz/magento-boaspraticas" target="_blank">Magento :: Boas Práticas</a>
+        </div>
+        <div class="col-xs-6 text-right">
+            Feito com <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>  por <a href="https://br.linkedin.com/in/rafaelcgstz" target="_blank">Rafael Corrêa Gomes</a>
+        </div>
     </div>
-
-  </div>
+</div>
 
 </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -49,3 +17,5 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55b1345be91612e2" async="async"></script>
