@@ -10,37 +10,46 @@ $font-family: 'Lato', sans-serif;
 /**
  * Site header
  */
-
-.topbar{background-color: $color1;}
-.navbar{
-    margin-bottom: 0;    
-    .navbar-toggle{
-        border: 1px solid $color3;
-        .icon-bar{border: 1px solid $color3;}
-    }
-    .navbar-brand, .navbar-nav > li > a{
-    color: $color4;
-    font-family: $font-family;
-    text-shadow: 0px 1px 0px rgba(83, 81, 81, 0.67);
-    &:hover, &:focus{
-        color: $color2;
+header{
+    .topbar{background-color: $color1;}
+    .navbar{
+        margin-bottom: 0;    
+        .navbar-toggle{
+            border: 1px solid $color3;
+            .icon-bar{border: 1px solid $color3;}
+        }
+        .navbar-brand, .navbar-nav > li > a{
+        color: $color4;
+        font-family: $font-family;
+        text-shadow: 0px 1px 0px rgba(83, 81, 81, 0.67);
+        &:hover, &:focus{
+            color: $color2;
+            background: $color5;
+            }
+        }
+        .open{
+            & > a,
+            & > a:active,
+            & > a:hover{
+               background: $color5;color: $color2; 
+            }
+        }
+        .navbar-nav .open .dropdown-menu {
         background: $color5;
+        .dropdown-header,
+        & > li > a{
+            color: white;
+            &:focus,
+            &:hover{background: $color6;}
+        }
+        .divider{background-color: $color6;}
         }
     }
-    .open > a{
-        &:active,
-        &:hover{
-           background: $color5;color: $color2; 
-        }
+    .site-title {
+           h1{
+               font-size: 17px;
+               color: $color4;
+           } 
     }
-    .navbar-nav .open .dropdown-menu {
-    background: $color5;
-    .dropdown-header,
-    & > li > a{
-        color: white;
-        &:focus,
-        &:hover{background: $color6;}
-    }
-    .divider{background-color: $color6;}
 }
-}
+
