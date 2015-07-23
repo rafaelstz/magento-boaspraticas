@@ -2,9 +2,15 @@
 layout: default
 ---
 
-<div class="home">
+<div class="home wrapper">
 
-  <h1 class="page-heading">Posts</h1>
+  <div class="container headerTitle">
+       <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1 class="site-title">{{ site.title }}</h1>
+            </div>
+        </div>
+   </div>
 
   <ul class="post-list">
     {% for post in site.posts %}

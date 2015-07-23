@@ -7,11 +7,18 @@ $color6: #4a4a4a;
 
 $font-family: 'Lato', sans-serif;
 
+@mixin h1{font-weight: 900;
+    font-size: 55px;
+    margin: 1em auto;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    color: $color4;}
+
 /**
  * Site header
  */
 header{
-    .topbar{background-color: $color1;}
+    height: 52px;
+    .topbar{background-color: $color1; box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);}
     .navbar{
         margin-bottom: 0;    
         .navbar-toggle{
@@ -31,7 +38,7 @@ header{
             & > a,
             & > a:active,
             & > a:hover{
-               background: $color5;color: $color2; 
+               background: $color5;color: $color2; text-shadow: none; 
             }
         }
         .navbar-nav .open .dropdown-menu {
@@ -40,16 +47,16 @@ header{
         & > li > a{
             color: white;
             &:focus,
-            &:hover{background: $color6;}
+            &:hover{background: $color6; text-shadow: none;}
         }
         .divider{background-color: $color6;}
         }
     }
-    .site-title {
-           h1{
-               font-size: 17px;
-               color: $color4;
-           } 
-    }
 }
 
+.wrapper{
+    background: url("../images/background.png") repeat-x ;
+    .site-title {
+           @include h1;
+    }
+}

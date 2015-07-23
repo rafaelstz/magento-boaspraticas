@@ -1,23 +1,22 @@
 <header class="site-header">
-    <div class="topbar">
+    <div class="topbar navbar-fixed-top">
         <div class="container">
         <nav class="navbar">
       <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-scroll" aria-expanded="false">
             <span class="sr-only">Menu</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>    
         </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="nav-scroll">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Introdução <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Tema</a></li>
+        <li class="active"><a href="{{ site.baseurl }}/">Introdução <span class="sr-only">(current)</span></a></li>
+        <li><a href="{{ site.baseurl }}/#tema">Tema</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extensões <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -30,10 +29,10 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-        <li><a href="#">Debug</a></li>
-        <li><a href="#">Performace</a></li>
-        <li><a href="#">DevTools</a></li>
-        <li><a href="#">Testes</a></li>
+        <li><a href="{{ site.baseurl }}/#">Debug</a></li>
+        <li><a href="{{ site.baseurl }}/#">Performace</a></li>
+        <li><a href="{{ site.baseurl }}/#">DevTools</a></li>
+        <li><a href="{{ site.baseurl }}/#">Testes</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -52,20 +51,4 @@
 </nav>
 </div>
 </div>
-   <div class="container">
-       
-   </div>
-    <div class="row">
-        <div class="col-xs-12 text-center">
-            <a class="site-title" href="{{ site.baseurl }}/"><h1>{{ site.title }}</h1></a>
-        </div>
-    </div>
-
-    <nav class="site-nav">
-
-      <div class="trigger">
-       
-      </div>
-    </nav>
-
 </header>
