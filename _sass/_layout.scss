@@ -28,7 +28,6 @@ $font-family: 'Lato', sans-serif;
         }
     }
     .open > a{
-        &,
         &:active,
         &:hover{
            background: $color5;color: $color2; 
@@ -39,10 +38,9 @@ $font-family: 'Lato', sans-serif;
     .dropdown-header,
     & > li > a{
         color: white;
-        &,
         &:focus,
         &:hover{background: $color6;}
     }
-    .divider{background-color: $color5;}
+    .divider{background-color: $color6;}
 }
 }
