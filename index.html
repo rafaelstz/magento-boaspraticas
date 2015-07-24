@@ -11,19 +11,289 @@ layout: default
             </div>
         </div>
    </div>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    
+    
+    <div class="container page">
+            <div class="col-xs-12">
+            <div class="row top-menu-fix" id="introducao">
+                <h2>Introdução</h2>
+                <p>Este não é um tutorial. Esta é uma lista (colaborativa) de coisas que eu acho que você deve fazer como um <strong>Magento Developers</strong>. Este é um documento live e adoraria algumas recomendações sobre o conteúdo, bem como um outros olhos sobre o conteúdo.</p>
+            </div>
+            </div>
+            <div class="col-xs-12">
+            
+            <!--    Tema     -->
+            <div class="row top-menu-fix">
+                <h2>Tema</h2>
+                <p>O tema que acompanha sua loja vai ser sempre o maior componente de seu desenvolvimento e por isso é importante construí-lo corretamente.</p>
+                
+                </div>
+                <div class="row top-menu-fix" id="tema-blocks">
+                <h3>Blocks</h3>
+                <ul class="col-xs-12">
+                    <li><p>Desenvolva seus blocos de tal forma que o próximo desenvolvedor pode fazer as modificações necessárias chamando <code>&lt;action method="name" /&gt;</code> no <code>layout.xml</code>.</p></li>
+                    <li><p>Não substitua o método <code>getTemplate()</code>, se o fizer, use primeiro <code>$this->hasData('template')</code>.</p></li>
+                    <li><p>Não use <code>$this->assign($name, $value)</code> nos blocos. Ninguém gosta de surpresas.</p></li>
+                </ul>
+                </div>
+                
+                <div class="row top-menu-fix" id="tema-templates">
+                <h3>Templates</h3>
+                <ul class="col-xs-12">
+                    <li><p>Certifique-se de usar <code>$this->__('')</code> nas <strong>string</strong> para tradução.</p></li>
+                    <li><p>Adicione no topo do arquivo <code>/** @var $this Mage_Core_Block_Template */</code> (substituindo para a classe correta), sua IDE vai adorar.</p></li>
+                    <li><p>Mantenha o máximo de sua lógica possível em seu bloco. Isso faz com que a lógica seja reutilizável e permita a delegação das tarefas de templates para membros menos experientes da equipe.</p></li>
+                </ul>
+            </div>
+            
+                <div class="row top-menu-fix" id="tema-layouts">
+                <h3>Layouts</h3>
+                <ul class="col-xs-12">
+                    <li><p>Use <code>&lt;update handle=""&gt;</code> para refatorar as repetidas declarações de blocos.</p></li>
+                    <li><p>Mova blocos de uma referência para outra usando <code>&lt;action method="unsetChild"&gt;&lt;/action&gt;</code> e <code>&lt;action method="insert"&gt;&lt;/action&gt;</code>.</p></li>
+                    <li><p>Crie um arquivo <code>local.xml</code> para conter todas as modificações na sua loja. Não crie <strong>catalog.xml, customer.xml, page.xml e etc</strong>.</p></li>
+                    <li><p>Um tema reutilizável é para todos os efeitos uma extensão para Magento, não deve ser fornecido com <code>local.xml</code> personalizado.</p></li>
+                    <li><p>Ao criar uma extensão que requer alterações de layout:</p><br>
+                    <ul class="col-xs-12">
+                        <li><p>Não entregue com uma cópia de um arquivo<code>local.xml</code>.</p></li>
+                        <li><p>Crie o seu próprio arquivo de layout com um nome exclusivo seguindo o seu namespace módulo, por exemplo <code>$companyname/$modulename.xml</code>.</p></li>
+                        <li><p>Coloque o arquivo de layout (e seus arquivos de template) no tema <code>base/default</code> para que ele possa ser acessado por todos os temas instalados.</p></li>
+                    </ul></li>
+        
+                    
+                </ul>
+            </div>
+            </div>
+            
+            <!--  Extensões  -->
+            <div class="col-xs-12">
+            <div class="row top-menu-fix">
+                <h2>Extensões</h2>
+                <p>Todas as modificações para a funcionalidade central do Magento deve ser feito por meio de extensões Magento.</p>
+                <p>Um forte incentivo para a migração para o Magento é o número de extensões no <a href="//www.magentocommerce.com/magento-connect" target="_blank">Magento Connect</a>.</p>
+                <p>Ao contrário da <strong>Apple Store</strong>, não há nenhuma revisão de código nem controle de qualidade no procedimento para publicação. Essas extensões devem residir na pasta <code>community</code>.</p>
+                <p>Quando se cria uma nova loja Magento, normalmente devemos adicionar códigos customizados e para isso devemos:</p>
+                <ul class="col-xs-12">
+                    <br>
+                    <li><p>Sobrescrever funções do core.</p></li>
+                    <li><p>Sobrescrever funções de módulos que estão na community.</p></li>
+                    <li><p>Adicionar funções independentes / adicionais.</p></li>
+                    <br>
+                </ul>
+                
+                <p>Essas atualizações deverão ser feitas na pasta <code>code/local</code>.</p>
+                <div class="alert alert-danger" role="alert"><p><strong>Nunca</strong> edite o <code>core</code> do Magento.</p></div>
+            </div>
+            <div class="row top-menu-fix" id="extensoes-terceiros">
+               <h2>Extensões de Terceiros</h2>
+                <ul class="col-xs-12">
+                    <li>
+                        <p>Sempre revise o código de qualquer extensão que instalar no site do cliente.</p>
+                    </li>
+                    <li>
+                        <p>Não edite qualquer extensão de terceiro diretamente, porque as alterações podem ser perdidas quando a extensão é atualizada. Em vez disso, crie o seu próprio módulo local que depende do que você deseja editar ou que reescreve seus models / blocks ou mesmo usa os eventos para alcançar o resultado desejado.</p>
+                    </li>
+                    <li>
+                        <p>Verifique se a extensão que você está prestes a instalar não reescrever quaisquer modelos ou blocos já reescritas por outras extensões em sua instância Magento. Se isso acontecer, você enfrentará um conflito de reescrita e você precisará fazer o seu próprio módulo local que depende de ambos os módulos (assim será carregado após eles) e reescreve os mesmos models/blocks de uma forma que não impeça que os módulos conflitantes parem de funcionar correctamente.</p>
+                    </li>
+                    <li>
+                        <p>Crie uma lista de fornecedores confiáveis de extensão (e não confiáveis).</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="row top-menu-fix" id="extensoes-observers">
+               <h2>Observers</h2>
+                <p>A melhor maneira de adicionar código no Magento é fazer uso do sistema de eventos. Isso permite que o código personalizado possa ser disparado após o recebimento de um evento, sem ter que reescrever modelos ou blocos. Desenvolvendo com observers significa que o código é mais independente e menos propensos ao conflito com outras extensões.</p>
+                <ul class="col-xs-12">
+                    <li>
+                        <p>Você pode conferir os eventos que podem ser usados nessa <a href="https://www.nicksays.co.uk/magento-events-cheat-sheet-1-7/"  target="_blank">página</a>.</p>
+                    </li>
+                    <li>
+                        <p>Quando desenvolvedores tentam criar suas extensões e eventos, consideram extender ela no futuro com <code>Mage::dispatchEvent</code>.</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="row top-menu-fix" id="extensoes-admin">
+               <h2>Área Administrativa</h2>
+                <ul class="col-xs-12">
+                    <li>
+                        <p>Use o <strong>ACL</strong> para restringir o acesso da interface administrativa.</p>
+                    </li>
+                    <li>
+                        <p>Extenda <code>Mage_Adminhtml_Controller_Action</code> quando criar sua <strong>controllers</strong> para herdar as alterações de configuração da sessão e CSRF, entre outras coisas.
+</p>
+                    </li>
+                    <li>
+                        <p>Mude o <code>/admin</code> para evitar ataques.</p>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            
+            <!-- Debug -->
+            <div class="col-xs-12">
+            <div class="row top-menu-fix">
+                <h2>Debug</h2>
+                <p>Há uma abundância de métodos para depurar questões Magento. A maioria dos problemas podem ser resolvidos com uma compreensão fundamental de como os componentes se encaixam, juntamente com uma boa idéia de onde começar a procurar. Para todo o resto há <a href="http://www.phptherightway.com/#xdebug" target="_blank">Xdebug</a>.
+</p></div>
+                <div class="row top-menu-fix" id="debug-varien">
+                <h3>O Varien_Object</h3>
+                <ul class="col-xs-12">
+                    <li><p>Não use o <code>var_dump()</code>, você provavelmente ter uma <abbr title="White Screen of Death (Tela Branca da Morte)">WSOD</abbr>.</p></li>
+                    <br>
+                </ul>
+                <p>Você pode inspecionar um objeto com <code>Varien_Object</code> usando o método <code>->debug()</code>.</p>
+                </div>
+                
+                <div class="row top-menu-fix" id="debug-log">
+                <h3>Log</h3>
+                <ul class="col-xs-12">
+                    <li><p>Escreva seus log em <code>var/log</code> usando <code>Mage::log($message, $severity, $filename, $force)</code>.</p></li>
+                    <li><p>Use em vários níveis como em <code>Zend_Log</code>.</p></li>
+                    <li><p>Faça a seu próprio arquivo, tentar furar a convenção de nomenclatura <code>$company_$extension_$specific.log</code> (Por exemplo: <code>meanbee_shippingrules_requests.log</code>).</p></li>                     <li><p>Ative o <strong>Debug Mode</strong> para forçar o log de sua extensão, sempre vem globalmente desabilitado.</p></li>                     
+                    <li><p>Aplicações de ecommerce exigem rápido rastreamento de problemas, então log qualquer coisa que possa tornar a sua vida mais fácil no futuro deve ser bem-vindo.</p></li>
+                    <li><p>Só há uma coisa pior que um arquivo de log vazio, um arquivo de log lotado informações inúteis.</p></li>
+                </ul>
+            </div>
+            
+                <div class="row top-menu-fix" id="debug-banco">
+                <h3>Consultas no Banco</h3>
+                <ul class="col-xs-12">
+                    <li><p>Há um série de métodos para depuração SQL.</p>
+                    <ul class="col-xs-12">
+                       <br>
+                        <li>
+                            <p><code>$collection->getSelect()->assemble()</code></p>
+                        </li>
+                        <li>
+                            <p><code>$collection->printLogQuery(true)</code> deverá exibir, e <code>$collection-></code> com <code>printLogQuery(false, true)</code> deverá colocar no arquivo <strong>system.log</strong>.</p>
+                        </li>
+                        <li>
+                            <p>Configurando <code>Varien_Db_Adapter_Pdo_Mysql</code> com <code>::$_debug</code> para <strong>true</strong> irá registrar todas as consultas para <code>Varien_Db_Adapter_Pdo_Mysql</code> com  <code>::$_debugFile</code>.</p>
+                        </li>
+                    </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+            </div>
+            
+            
+            <!-- Performace  -->
+            <div class="col-xs-12">
+            <div class="row top-menu-fix">
+                <h2>Performace</h2>
+                <p>Lojas devem ser rápidas, e isso tem um <a href="https://blog.kissmetrics.com/loading-time/" target="_blank">preço</a>.</p>
+                
+                </div>
+                <div class="row top-menu-fix" id="performace-frontend">
+                <h3>Frontend</h3>
+                <p>A maioria das técnicas tradicionais de desenvolvedores frontend para melhorar a velocidade do seu site se aplicam a Magento.</p>
+                <ul class="col-xs-12">
+                   <br>
+                    <li><p>Ativar fusão arquivos CSS e JS em Magento. Você pode usar <a href="http://www.magentocommerce.com/magento-connect/speedster-advanced-by-fooman.html" target="_blank">Fooman Speedster</a> avançada para minification on-the-fly e inteligente agrupamento arquivo combinado..</p></li>
+                    <li><p>Não substitua o método <code>getTemplate()</code>, se o fizer, use primeiro <code>$this->hasData('template')</code>.</p></li>
+                    <li><p>Não use <code>$this->assign($name, $value)</code> nos blocos. Ninguém gosta de surpresas.</p></li>
+                </ul>
+                </div>
+                
+                <div class="row top-menu-fix" id="performace-backend">
+                <h3>Backend</h3>
+                <ul class="col-xs-12">
+                    <li><p>Existem alguns métodos básicos para acelerar a instalação Magento, alguns dos quais são descritos em um whitepaper <a href="http://www.slideshare.net/quartsoft/optimizing-magento-for-peak-performance?ref=http://quartsoft.com/blog/201211/improving-performance-of-magento-store" target="_blank">Magento oficial</a> sobre o tema.</p></li>
+                    <li>
+                        <p>Use <a href="http://www.percona.com/software/percona-server" target="_blank">Percona</a> ao invés de MySQL.</p>
+                    </li>
+                    <li>
+                        <p>Utilize o PHP >= 5.4 para uma melhor performace (<a href="http://magento.com/blog/magento-news/magento-now-supports-php-54" target="_blank">PATCH de suporte para 5.4</a>).</p>
+                    </li>
+                    <li>
+                        <p>Instale o <a href="http://www.phptherightway.com/#bytecode_cache" target="_blank">bytecode cache para PHP</a> assim como o APC.</p>
+                    </li>
+                    <li>
+                        <p>Se lembre de desativar o Xdebug em servidores que estão em produção.</p>
+                    </li>
+                    <li>
+                        <p>Use <a href="http://nginx.org/" target="_blank">NGINX</a> + <a href="http://php-fpm.org/" target="_blank">PHP-FPM</a> no lugar de apache.</p>
+                    </li>
+                    <li>
+                        <p>Ative o cache em servidores de produção.</p>
+                    </li>
+                    <li>
+                        <p>Use o Varnish para um <strong>full page cache</strong>. Para ter apoio utilize <a href="https://github.com/nexcess/magento-turpentine" target="_blank">Turpentine</a>.</p>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            
+            <div class="col-xs-12">
+            <div class="row top-menu-fix" id="performace-backend">
+                <h3>Ferramentas de Desenvolvimento</h3>
+                <p>Há uma série de ferramentas que surgiram para tornar a sua vida como um desenvolvedor Magento mais fácil.</p>
+                <ul class="col-xs-12">
+                   <br>
+                    <li>
+                        <p><a href="https://github.com/colinmollenhour/modman" target="_blank">Modman</a> - Gerenciador de módulos.</p>
+                    </li>
+                    <li>
+                        <p><a href="https://github.com/EcomDev/EcomDev_PHPUnit" target="_blank">Ecomdev_PHPUnit</a> - Integração com PHPUnit.</p>
+                    </li>
+                    <li>
+                        <p><a href="https://github.com/netz98/n98-magerun" target="_blank">Magerun</a> - CLI para Magento.</p>
+                    </li>
+                    <li>
+                        <p><a href="http://magetool.co.uk/" target="_blank">Magetool</a> - Outro CLI pra Magento.</p>
+                    </li>
+                    <li>
+                        <p><a href="http://pear.php.net/package/PHP_CodeSniffer/" target="_blank">PHPCS</a> - PHPCodeSniffer, mantenha seu código consistente.</p>
+                    </li>
+                    <li>
+                        <p><a href="http://www.jetbrains.com/phpstorm/" target="_blank">PhpStorm</a> - Junto com o plugin <strong>PAGO</strong> <a href="http://magicento.com/" target="_blank">Magicento</a>, possíbilita grandes vantagens no desenvolvimento Magento.</p>
+                    </li>
+                    <li>
+                        <p><a href="https://github.com/rafaelstz/brackets-magento-hint" target="_blank">Brackets Magento</a> - Plugin <strong>FREE</strong> Magento para <a href="#">Brackets</a> que auxilia no desenvolvimento.</p>
+                    </li>
+                    <li>
+                        <p><a href="https://github.com/rafaelstz/atom-magento-tools" target="_blank">Atom Magento</a> - Plugin <strong>FREE</strong> Magento para <a href="#">Atom</a> que auxilia no desenvolvimento.</p>
+                    </li>
+                    <li>
+                        <p><a href="https://github.com/rafaelstz/dev-alias" target="_blank">DevAlias</a> - Conjunto de <strong>Alias</strong> para desenvolvedores Magento.</p>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            
+            <div class="col-xs-12">
+            <div class="row top-menu-fix" id="testes">
+                <h3>Testes</h3>
+                <p>Testes Magento pode ser difícil às vezes. Usando Behat e PHPSpec fornece um fluxo de trabalho TDD útil que ajuda a automatizar armazenamentos de usuários e extensões de design.</p>
+               <br>
+               <h3>BehatMage</h3>
+               <h4>Behat</h4>
+               <br>
+               <p>Desenvolvimento orientado a comportamento é uma metodologia de "fora para dentro". Inicia-se no exterior, identificando os resultados do negócio, e, em seguida, perfura para dentro do conjunto de recursos que permite alcançar esses resultados. Cada recurso é capturada como uma "história", que define o âmbito de aplicação do recurso, juntamente com a sua aceitação criteria.Behat é um framework php BDD, que permite que os desenvolvedores para testar aplicações PHP usando frases legíveis para descrever recursos e cenários sobre como o aplicação deve comportar-se de forma a testar a sua funcionalidade.</p>
+               <br>
+               <h4>BehatMage</h4>
+               <br>
+               <p>BehatMage é uma extensão para provar Behat com contexto sobre a funcionalidade específica Magento, permitindo que os desenvolvedores para definir cenários e medidas relativas a testes de Magento com tools.Reasons BDD para usar BehatMage sobre apenas Behat são que nós incluímos algumas definições passo inicial para trabalhar com Magento um pouco Mais fácil. Por Exemplo. I fazer o login como ... eu vejo na configuração ... Bem como acessórios que nos permitem colocar o sistema em um estado conhecido antes de começar o teste. Por Exemplo. Dados os seguintes produtos existem: Estendendo o BehatContext também nos fornece acesso ao namespace Mago assim podemos definir nossas próprias afirmações com base em objetos Magento.</p>
+               <br>
+                                                  <p>Uma vez BehatMage é instalado, você pode então usar Behat dentro de um projeto Magento. BehatMage fornece arquivos contextos adicionais para apoiar Magento, bem como proporcionar acesso a Mago dentro de arquivos de contexto. Para obter mais informações sobre o uso BehatMage consulte o repositório no github <a href="https://github.com/MageTest/BehatMage" target="_blank">aqui</a>.</p>
+                                                  <br>
+                                                  <h4>MageSpec</h4>
+                                                  <br>
+                                                  <p>PHPspec é uma ferramenta de desenvolvimento derivado da técnica BDD chamados especificações ou SpecBDD; não há diferença real entre SpecBDD e TDD diferente da língua que é usada para descrever os cenários e características. Ao usar PHPSpec o foco é sobre o "Comportamento" do método em oposição a TDD tradicional, onde o foco é tudo em "testes". Nós escrevemos nossas especificações como se estivéssemos falando com um suporte de participação no projeto: Ele deve fazer alguma coisa quando eu aplicar alguma outra coisa.</p>
+                                                  <br>
+                                                  <h4>O que é MageSpec</h4>
+                                                  <br>
+                                                  <p>MageSpec é uma extensão da ferramenta SpecBDD PHPSpec, Seu principal objetivo é permitir uma fácil integração em Magento ao descrever o comportamento. Ele faz isso por expor as classes Magento necessários e cria um nível de conhecimento sobre modelos de Blocos e controladores ... MageSpec ajuda a manter o foco no laço refactor vermelho, verde por: <strong>Descrição, Implementação, Refatoração.</strong></p>
+                                                  <br>
+                                                  <p>Nós conseguimos isso através da adição de auxiliares adicionais para o PHPSpec CLI para descrever componentes-chave dentro Magento (Blocos, Modelos, Controllers) este valida o nome do fornecedor eo nome do módulo módulos para garantir a compatibilidade Magento.
+                                                      Um recurso recentemente adicionado é geração automática de código para módulos, incluindo app / etc / modules / .... eo conceito de Magento piscinas de código. Para um desenvolvedor isso nos permite descrever no CLI, implementar no IDE e afirmar através do CLI reduzindo a necessidade de etapas manuais de código clichê e navegador refresca.</p>
+                                                  <p>Para obter mais informações sobre o uso MageSpec consulte o repositório no github <a href="https://github.com/MageTest/MageSpec">aqui</a>.</p>
+                                                   
+                </div>
+            </div>
+    </div>
 
 </div>

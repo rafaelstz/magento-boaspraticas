@@ -2,7 +2,6 @@
     <div class="topbar navbar-fixed-top">
         <div class="container">
         <nav class="navbar">
-      <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-scroll" aria-expanded="false">
@@ -14,27 +13,43 @@
         </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="nav-scroll">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{{ site.baseurl }}/">Introdução <span class="sr-only">(current)</span></a></li>
-        <li><a href="{{ site.baseurl }}/#tema">Tema</a></li>
+      <ul class="nav navbar-nav"  role="tablist">
+        <li class="active"><a href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <span class="sr-only">(current)</span></a></li>
+        <li><a href="#introducao">Introdução </a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tema <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#tema-blocks">Blocks</a></li>
+            <li><a href="#tema-templates">Templates</a></li>
+            <li><a href="#tema-layouts">Layouts</a></li>
+          </ul>
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extensões <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#extensoes-terceiros">De Terceiros</a></li>
+            <li><a href="#extensoes-observer">Observers</a></li>
+            <li><a href="#extensoes-admin">Área Admin</a></li>
           </ul>
         </li>
-        <li><a href="{{ site.baseurl }}/#">Debug</a></li>
-        <li><a href="{{ site.baseurl }}/#">Performace</a></li>
-        <li><a href="{{ site.baseurl }}/#">DevTools</a></li>
-        <li><a href="{{ site.baseurl }}/#">Testes</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Debug <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#debug-varien">O Varien_Object</a></li>
+            <li><a href="#debug-log">Log</a></li>
+            <li><a href="#debug-banco">Consultas no Banco</a></li>
+          </ul>
+        </li><li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Performace <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#performace-frontend">Frontend</a></li>            
+            <li><a href="#performace-backend">Backend</a></li>
+          </ul>
+        </li>
+        <li><a href="#devtools">DevTools</a></li>
+        <li><a href="#testes">Testes</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right">    
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sobre<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -45,9 +60,10 @@
             {% endfor %}
           </ul>
         </li>
+        <li style="padding: 1em 0 0;"><!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/rafaelstz/magento-boaspraticas" data-count-href="/rafaelstz/magento-boaspraticas/stargazers" data-count-api="/repos/rafaelstz/magento-boaspraticas#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star rafaelstz/magento-boaspraticas on GitHub">Star</a></div></li>
       </ul>
     </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
 </nav>
 </div>
 </div>
