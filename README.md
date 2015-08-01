@@ -5,6 +5,8 @@ Boas práticas para desenvolvedores Magento, não é tutorial é um guia. Conté
 
 Para contribuir basta seguir o [GIT FLOW](http://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 
+Todas as contribuições devem ser feitas na branch **develop** assim que é fechada uma versão, a feature é colocada em produção.
+
 #### Branchs
 
 **Produção** -> gh-pages
