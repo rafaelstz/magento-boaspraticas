@@ -20,14 +20,14 @@
     <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
     <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
-    
+
     <!--   Chrome & Firefox OS   -->
     <meta name="theme-color" content="#ef672f">
     <!--   Windows Phone    -->
     <meta name="msapplication-navbutton-color" content="#ef672f">
     <!--   iOS Safari    -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        
+    
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -40,5 +40,5 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" href={{ "/css/main.css" | prepend: site.baseurl }}>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 </head>
