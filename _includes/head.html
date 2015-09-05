@@ -5,6 +5,17 @@
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="x-dns-prefetch-control" content="off">
+    <link rel="dns-prefetch" href="//platform.twitter.com">
+    <link rel="dns-prefetch" href="//static.ak.facebook.com">
+    <link rel="dns-prefetch" href="//buttons.github.io">
+    <link rel="dns-prefetch" href="//a.disquscdn.com">
+    <link rel="dns-prefetch" href="//fbstatic-a.akamaihd.net">
+    <link rel="dns-prefetch" href="//facebook.com">
+    <link rel="dns-prefetch" href="//m.addthis.com">
+    <link rel="dns-prefetch" href="//api-public.addthis.com">
+    <link rel="dns-prefetch" href="//s7.addthis.com">
+    <!-- <link rel="prefetch" href="<?php echo $this->getBaseUrl() ?>media/theme/default/loader.gif"> -->
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
     <meta name="keywords" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines }}{% else %}{{ site.keywords }}{% endif %}">
