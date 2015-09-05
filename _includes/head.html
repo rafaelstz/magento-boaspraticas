@@ -1,13 +1,16 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="viewport" content="width=320, minimum-scale=1, maximum-scale=1" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
     <meta name="keywords" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines }}{% else %}{{ site.keywords }}{% endif %}">
     <meta name="author" content="{{ site.author }}">
-    <link rel="icon" href="{{ site.favicon| prepend:site.baseurl }}">
+    <link rel="icon" href="{{ site.favicon| prepend:site.baseurl }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ site.favicon| prepend:site.baseurl }}" type="image/x-icon" />
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
     <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
@@ -20,14 +23,24 @@
     <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
     <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
-    
+    <meta name="copyright" content="Rafael Corrêa Gomes">
+    <meta name="language" content="PT">
+    <meta name="author" content="Rafael Corrêa Gomes">
+    <meta name="reply-to" content="rafaelcg_stz@hotmail.com">
+    <meta name="url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta name="identifier-URL" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta name="directory" content="submission">
+    <meta name="coverage" content="Worldwide">
+    <meta name="distribution" content="Global">
+    <meta name="rating" content="General">
+    <meta name="revisit-after" content="7 days">
     <!--   Chrome & Firefox OS   -->
     <meta name="theme-color" content="#ef672f">
     <!--   Windows Phone    -->
     <meta name="msapplication-navbutton-color" content="#ef672f">
     <!--   iOS Safari    -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        
+
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -40,5 +53,5 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" href={{ "/css/main.css" | prepend: site.baseurl }}>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 </head>
