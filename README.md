@@ -5,7 +5,11 @@ Boas práticas para desenvolvedores Magento, não é tutorial é um guia. Conté
 
 Para contribuir basta seguir o [GIT FLOW](http://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html)
 
-**Branch de produção** -> gh-pages
+#### Branchs
+
+**Produção** -> gh-pages
+
+**Desenvolvimento** -> develop
 
 ## Licença
 
