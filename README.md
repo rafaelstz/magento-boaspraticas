@@ -7,7 +7,7 @@ Para contribuir basta seguir o [GIT FLOW](http://danielkummer.github.io/git-flow
 
 Todas as contribuições devem ser feitas na branch **develop** assim que é fechada uma versão, a feature é colocada em produção.
 
-#### Branchs
+#### Branches
 
 **Produção** -> gh-pages
 
