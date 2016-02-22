@@ -5,7 +5,7 @@ email: "rafaelcg_stz@hotmail.com"
 keywords: "Magento, boas práticas, desenvolvimento, php, temas, extensões, debug, performace, frontend, backend, testes."
 description: "Boas práticas para desenvolvedores Magento, não é tutorial é um guia. Contém recomendações de temas, extensões, debug, performace, frontend, backend, ferramentas de desenvolvimento e testes."
 baseurl: "/magento-boaspraticas"
-url: "http://rafaelstz.github.com"
+url: "https://rafaelstz.github.com"
 locale: pt_BR
 
 # Personal info and site tools info:
