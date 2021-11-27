@@ -1,4 +1,4 @@
-# Magento :: Boas Práticas ![Versão](https://img.shields.io/badge/Versão-1.0.4-green.svg) [![Build Status](https://travis-ci.org/rafaelstz/magento-boaspraticas.svg?branch=gh-pages)](https://travis-ci.org/rafaelstz/magento-boaspraticas)
+# Magento :: Boas Práticas ![Versão](https://img.shields.io/badge/Versão-1.0.5-green.svg) [![Build Status](https://travis-ci.org/rafaelstz/magento-boaspraticas.svg?branch=gh-pages)](https://travis-ci.org/rafaelstz/magento-boaspraticas)
 Boas práticas para desenvolvedores Magento, não é tutorial é um guia. Contém recomendações de temas, extensões, debug, performace, frontend, backend, ferramentas de desenvolvimento e testes.
 
 ## Contribua
